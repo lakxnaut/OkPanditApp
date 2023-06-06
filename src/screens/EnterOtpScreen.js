@@ -1,24 +1,26 @@
-import { View, Text, TextInput, Button,StyleSheet } from 'react-native'
+import { View, Text,TextInput,StyleSheet } from 'react-native'
 import React, { useState } from 'react'
 import { SIZES } from '../constants/theme'
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable'
 
-export default function LoginScreen() {
+export default function EnterOtpScreen() {
     const [mobile, setMobile] = useState('')
-    return (
-        <View style={{ padding: 10, paddingTop: 50, }}>
-            <Text style={{ fontSize: SIZES.h2, fontWeight: "900", color: 'black',padding:10 }}>Enter Phone number</Text>
-            <TextInput 
+
+  return (
+    <View style={{ padding: 10, paddingTop: 50 }}>
+            <Text style={{ fontSize: SIZES.h2, fontWeight: "900", color: 'black',padding:10 }}>Enter OTP</Text>
+            <TextInput
+            autoFocus 
             onChangeText={setMobile}
             value={mobile}
-            placeholder="Enter Mobile"
+            placeholder="Enter OTP"
             keyboardType="numeric"
-            style={{ padding: 13, backgroundColor: '#ebe6e6', margin: 10, borderRadius: 6 }} />
-            <Text style={{ fontSize: SIZES.h4, margin: 10, color: 'black' }}>Please use your current number or your OkPandit
-                registered number</Text>
+            style={{padding: 13, backgroundColor: '#ebe6e6', margin: 10, borderRadius: 6}} />
+            <Text style={{ padding:10,fontSize: SIZES.h4, margin: 5, color: 'black' }}>2:23</Text>
+            <Text style={{padding:10,textAlign:'center'}}>Haven’t recieved the OTP yet ? <Text onPress={()=>{}} style={{color:'blue'}}>RESEND</Text></Text>
             <Pressable style={ styles.button} ><Text style={styles.text}>Get OTP</Text></Pressable>
         </View>
-    )
+  )
 }
 
 

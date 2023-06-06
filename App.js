@@ -5,6 +5,8 @@ import AppIntroSlider from 'react-native-app-intro-slider'
 // import slides from './slides'
 import { COLORS, SIZES } from './src/constants/theme'
 import LoginScreen from './src/screens/LoginScreen'
+import EnterOtpScreen from './src/screens/EnterOtpScreen'
+import AddDetailsScreen from './src/screens/AddDetailsScreen'
 
 const slides= [
   {
@@ -92,7 +94,7 @@ export default function App() {
  
   return (
     <View>
-      <LoginScreen/>
+      <AddDetailsScreen/>
     </View>
   )
 }
