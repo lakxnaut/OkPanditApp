@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { SIZES } from '../constants/theme'
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable'
 
-export default function LoginScreen() {
+export default function LoginScreen(props) {
     const [mobile, setMobile] = useState('')
     return (
         <View style={{ padding: 10, paddingTop: 50, }}>
@@ -16,7 +16,7 @@ export default function LoginScreen() {
             style={{ padding: 13, backgroundColor: '#ebe6e6', margin: 10, borderRadius: 6 }} />
             <Text style={{ fontSize: SIZES.h4, margin: 10, color: 'black' }}>Please use your current number or your OkPandit
                 registered number</Text>
-            <Pressable style={ styles.button} ><Text style={styles.text}>Get OTP</Text></Pressable>
+            <Pressable style={ styles.button} ><Text style={styles.text} onPress={()=>props.navigation.navigate('otp')}>Get OTP</Text></Pressable>
         </View>
     )
 }

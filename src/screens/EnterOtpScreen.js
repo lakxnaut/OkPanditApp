@@ -18,7 +18,7 @@ export default function EnterOtpScreen() {
             style={{padding: 13, backgroundColor: '#ebe6e6', margin: 10, borderRadius: 6}} />
             <Text style={{ padding:10,fontSize: SIZES.h4, margin: 5, color: 'black' }}>2:23</Text>
             <Text style={{padding:10,textAlign:'center'}}>Haven’t recieved the OTP yet ? <Text onPress={()=>{}} style={{color:'blue'}}>RESEND</Text></Text>
-            <Pressable style={ styles.button} ><Text style={styles.text}>Get OTP</Text></Pressable>
+            <Pressable style={ styles.button} ><Text style={styles.text} onPress={()=>props.navigation.navigate('addDetail')}>Submit</Text></Pressable>
         </View>
   )
 }

@@ -7,6 +7,11 @@ import { COLORS, SIZES } from './src/constants/theme'
 import LoginScreen from './src/screens/LoginScreen'
 import EnterOtpScreen from './src/screens/EnterOtpScreen'
 import AddDetailsScreen from './src/screens/AddDetailsScreen'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { NavigationContainer } from '@react-navigation/native'
+
+
+const Stack = createNativeStackNavigator()
 
 const slides= [
   {
@@ -93,8 +98,16 @@ export default function App() {
 
  
   return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name='login' component={LoginScreen}/>
+        <Stack.Screen name='otp' component={EnterOtpScreen}/>
+        <Stack.Screen name='addDetail' component={AddDetailsScreen}/>
+      </Stack.Navigator>
     <View>
       <AddDetailsScreen/>
     </View>
+
+    </NavigationContainer>
   )
 }
