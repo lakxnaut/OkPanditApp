@@ -31,7 +31,7 @@ export default function AddDetailsScreen() {
 
 
 
-      <Pressable style={styles.button} ><Text style={styles.text}>Next</Text></Pressable>
+      <Pressable style={styles.button}  ><Text onPress={()=>props.navigation.navigate('HomePage')} style={styles.text}>Next</Text></Pressable>
     </View>
   )
 }

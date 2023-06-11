@@ -1,3 +1,3 @@
-export var baseURL="http://13.235.169.237:8001/api/auth/";
+export var baseURL="http://54.227.116.183:8001/api/auth/";
 
  

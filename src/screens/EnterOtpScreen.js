@@ -2,23 +2,46 @@ import { View, Text,TextInput,StyleSheet } from 'react-native'
 import React, { useState } from 'react'
 import { SIZES } from '../constants/theme'
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable'
+import { VerificationAPI } from '../api/verificationApi'
 
-export default function EnterOtpScreen() {
-    const [mobile, setMobile] = useState('')
+export default function EnterOtpScreen(props) {
+    const [OTP, setOTP] = useState('')
+    const { phone } = props.route.params;
+
+    
+
+    const VerifyOTPButton =()=>{
+
+    //   const json = {
+    //     "phone":phone,
+    //     "otp":OTP
+    // }
+
+    const json = {
+      "phone":'1234567890',
+      "otp":'1234'
+  }
+      VerificationAPI.VerifyPhoneOtp(json).then((res)=>{
+        if(res.status){
+          console.log(res)
+          props.navigation.navigate('HomePage')
+        }
+      })
+    }
 
   return (
     <View style={{ padding: 10, paddingTop: 50 }}>
-            <Text style={{ fontSize: SIZES.h2, fontWeight: "900", color: 'black',padding:10 }}>Enter OTP</Text>
+            <Text style={{ fontSize: SIZES.h2, fontWeight: "900", color: 'black',padding:10 }}>Enter OTPcsent on +91{phone}</Text>
             <TextInput
             autoFocus 
-            onChangeText={setMobile}
-            value={mobile}
+            onChangeText={setOTP}
+            value={OTP}
             placeholder="Enter OTP"
             keyboardType="numeric"
             style={{padding: 13, backgroundColor: '#ebe6e6', margin: 10, borderRadius: 6}} />
             <Text style={{ padding:10,fontSize: SIZES.h4, margin: 5, color: 'black' }}>2:23</Text>
             <Text style={{padding:10,textAlign:'center'}}>Haven’t recieved the OTP yet ? <Text onPress={()=>{}} style={{color:'blue'}}>RESEND</Text></Text>
-            <Pressable style={ styles.button} ><Text style={styles.text} onPress={()=>props.navigation.navigate('addDetail')}>Submit</Text></Pressable>
+            <Pressable style={ styles.button} ><Text style={styles.text} onPress={VerifyOTPButton}>Submit</Text></Pressable>
         </View>
   )
 }
