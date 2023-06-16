@@ -10,6 +10,12 @@ export default function LoginScreen(props) {
     console.log('hellllllllllllllllllllo');
   }, []);
 
+  const changeNumber = (text)=>{
+    console.log(text)
+    setMobile(text.replace(/[^0-9]/g, ''))
+
+  }
+
   const GetOTP = () => {
     console.log('first');
     VerificationAPI.VerifyAuth(mobile).then(res => {
@@ -31,10 +37,12 @@ export default function LoginScreen(props) {
         Enter Phone number
       </Text>
       <TextInput
-        onChangeText={setMobile}
+        onChangeText={(t)=>changeNumber(t)}
         value={mobile}
+        autoFocus
         placeholder="Enter Mobile"
         keyboardType="numeric"
+        maxLength={10}
         style={{
           padding: 13,
           backgroundColor: '#ebe6e6',

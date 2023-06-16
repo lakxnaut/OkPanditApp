@@ -10,6 +10,7 @@ import AddDetailsScreen from './src/screens/AddDetailsScreen'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { NavigationContainer } from '@react-navigation/native'
 import HomePageScreen from './src/screens/HomePageScreen'
+import ProblemCategoryScreen from './src/screens/ProblemCategoryScreen'
 
 
 const Stack = createNativeStackNavigator()
@@ -100,11 +101,12 @@ export default function App() {
  
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='login'>
+      <Stack.Navigator initialRouteName='categories'>
         <Stack.Screen name='login' component={LoginScreen}/>
         <Stack.Screen name='otp' component={EnterOtpScreen}/>
         <Stack.Screen name='HomePage' component={HomePageScreen}/>
         <Stack.Screen name='addDetail' component={AddDetailsScreen}/>
+        <Stack.Screen name='categories' component={ProblemCategoryScreen}/>
       </Stack.Navigator>
    
 

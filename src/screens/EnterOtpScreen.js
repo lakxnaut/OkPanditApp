@@ -1,12 +1,27 @@
 import { View, Text,TextInput,StyleSheet } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { SIZES } from '../constants/theme'
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable'
 import { VerificationAPI } from '../api/verificationApi'
+import { Toast } from 'react-native-toast-message/lib/src/Toast'
 
 export default function EnterOtpScreen(props) {
     const [OTP, setOTP] = useState('')
     const { phone } = props.route.params;
+
+    const showToast = () => {
+      Toast.show({
+        type: 'success',
+        text1: 'Otp Send Successfully',
+      
+      });
+    }
+
+    useEffect(() => {
+      console.log('hello from otp')
+      showToast()
+    }, [])
+    
 
     
 
@@ -18,8 +33,8 @@ export default function EnterOtpScreen(props) {
     // }
 
     const json = {
-      "phone":'1234567890',
-      "otp":'1234'
+      phone:"1234567890",
+      otp:"1234"
   }
       VerificationAPI.VerifyPhoneOtp(json).then((res)=>{
         if(res.status){
@@ -31,7 +46,7 @@ export default function EnterOtpScreen(props) {
 
   return (
     <View style={{ padding: 10, paddingTop: 50 }}>
-            <Text style={{ fontSize: SIZES.h2, fontWeight: "900", color: 'black',padding:10 }}>Enter OTPcsent on +91{phone}</Text>
+            <Text style={{ fontSize: SIZES.h2, fontWeight: "900", color: 'black',padding:10 }}>Enter OTP sent on +91{phone}</Text>
             <TextInput
             autoFocus 
             onChangeText={setOTP}
